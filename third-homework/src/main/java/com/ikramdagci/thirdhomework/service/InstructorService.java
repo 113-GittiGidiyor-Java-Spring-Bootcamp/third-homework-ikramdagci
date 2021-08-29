@@ -3,41 +3,47 @@ package com.ikramdagci.thirdhomework.service;
 
 import com.ikramdagci.secondhomework.dao.data.access.definition.InstructorDao;
 import com.ikramdagci.secondhomework.model.Instructor;
+import com.ikramdagci.thirdhomework.exception.StaffNotFoundException;
+import com.ikramdagci.thirdhomework.model.Instructor;
+import com.ikramdagci.thirdhomework.repository.InstructorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class InstructorService implements BaseService<Instructor> {
 
-    private final InstructorDao instructorDao;
+    private final InstructorRepository instructorRepository;
 
-    public InstructorService(InstructorDao instructorDao) {
-        this.instructorDao = instructorDao;
+    public InstructorService(InstructorRepository instructorDao) {
+        this.instructorRepository = instructorDao;
     }
 
     @Override
     public List<Instructor> findAll() {
-        return instructorDao.findAll();
+        List<Instructor> instructorList = new ArrayList<>();
+        instructorRepository.findAll().forEach(instructorList::add);
+        return instructorList;
     }
 
     @Override
     public Instructor findById(Long id) {
-        return instructorDao.findById(id);
+        return instructorRepository.findById(id).orElseThrow(() -> new StaffNotFoundException(id));
     }
 
     @Override
     public Instructor save(Instructor instructor) {
-        return instructorDao.save(instructor);
+        return instructorRepository.save(instructor);
     }
 
     @Override
     public void deleteById(Long id) {
-        instructorDao.deleteById(id);
+        instructorRepository.deleteById(id);
     }
 
     @Override
     public Instructor update(Instructor instructor) {
-        return instructorDao.update(instructor);
+        return instructorRepository.save(instructor);
     }
 }
