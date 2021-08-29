@@ -15,10 +15,10 @@ public class VisitingResearcher extends Instructor{
 
     @Column(name = "hours_worked")
     private int hoursWorked;
-    private static final double hourlySalary = 205.0;
+    private static final double HOURLY_SALARY = 205.0;
 
-    public double calculateTotalSalary() {
-        return hoursWorked * hourlySalary;
+    public void calculateTotalSalary() {
+        setSalary(hoursWorked * HOURLY_SALARY);
     }
 
     @Override

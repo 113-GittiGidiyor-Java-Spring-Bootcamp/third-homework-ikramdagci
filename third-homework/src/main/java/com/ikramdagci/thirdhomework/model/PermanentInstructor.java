@@ -13,14 +13,11 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class PermanentInstructor extends Instructor{
 
-     @Column(name = "salary")
-    private double salary;
-
 
     @Override
     public String toString() {
         return "PermanentInstructor{" +
                 super.toString() +
-                "salary=" + salary + "}";
+                "salary=" + super.getSalary() + "}";
     }
 }

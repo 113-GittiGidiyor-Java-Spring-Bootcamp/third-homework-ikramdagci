@@ -44,4 +44,8 @@ public class InstructorService implements BaseService<Instructor> {
     public Instructor update(Instructor instructor) {
         return instructorRepository.save(instructor);
     }
+
+//    public List<Instructor> findTop3BySalary(){
+//        return instructorRepository.findTop3BySalary();
+//    }
 }

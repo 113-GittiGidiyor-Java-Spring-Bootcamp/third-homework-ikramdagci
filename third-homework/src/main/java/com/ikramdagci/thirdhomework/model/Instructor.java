@@ -27,6 +27,8 @@ public abstract class Instructor extends BaseSchoolStaff {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "salary")
+    private double salary;
     @OneToMany(mappedBy = "instructor")
     private Set<Course> instructedCourses = new HashSet<>();
 

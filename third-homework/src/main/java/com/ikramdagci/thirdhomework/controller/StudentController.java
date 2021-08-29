@@ -44,7 +44,7 @@ public class StudentController {
         return new ResponseEntity<>(willDeleted,HttpStatus.OK);
     }
 
-    @DeleteMapping("/students/{id}")
+    @DeleteMapping("/students")
     public ResponseEntity<Student> deleteStudent(@RequestBody Student student){
         return this.deleteStudentById(student.getId());
     }
