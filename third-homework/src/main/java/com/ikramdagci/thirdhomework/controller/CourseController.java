@@ -31,9 +31,8 @@ public class CourseController {
     }
 
     @PostMapping("/courses")
-    public Course addCourse(Course course) {
-        System.out.println(course);
-        return courseService.save(course);
+    public ResponseEntity<Course> addCourse(Course course) {
+        return new ResponseEntity<Course>(courseService.save(course),HttpStatus.OK);
     }
 
     @PutMapping("/courses")

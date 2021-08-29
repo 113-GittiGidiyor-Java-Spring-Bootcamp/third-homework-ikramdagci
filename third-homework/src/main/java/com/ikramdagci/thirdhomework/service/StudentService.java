@@ -59,4 +59,13 @@ public class StudentService implements BaseService<Student> {
         return studentRepository.save(student);
     }
 
+    public List<Student> findByGender(char gender) {
+        return studentRepository.findByGender(gender);
+    }
+
+    public Student deleteByFullName(String fullName) {
+        return studentRepository.deleteByFullName(fullName);
+    }
+
+
 }
