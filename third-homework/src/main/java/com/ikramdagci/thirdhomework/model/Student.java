@@ -1,5 +1,6 @@
 package com.ikramdagci.thirdhomework.model;
 
+import com.ikramdagci.thirdhomework.model.enumeration.Gender;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

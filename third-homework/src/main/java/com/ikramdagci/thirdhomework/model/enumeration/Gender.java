@@ -1,4 +1,4 @@
-package com.ikramdagci.thirdhomework.model;
+package com.ikramdagci.thirdhomework.model.enumeration;
 
 public enum Gender {
 
