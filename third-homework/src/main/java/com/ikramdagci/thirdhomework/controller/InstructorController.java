@@ -1,7 +1,5 @@
 package com.ikramdagci.thirdhomework.controller;
 
-import com.ikramdagci.secondhomework.model.Instructor;
-import com.ikramdagci.secondhomework.service.InstructorService;
 import com.ikramdagci.thirdhomework.model.Instructor;
 import com.ikramdagci.thirdhomework.service.InstructorService;
 import org.springframework.http.HttpStatus;

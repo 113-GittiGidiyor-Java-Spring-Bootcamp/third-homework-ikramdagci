@@ -1,8 +1,6 @@
 package com.ikramdagci.thirdhomework.service;
 
 
-import com.ikramdagci.secondhomework.dao.data.access.definition.InstructorDao;
-import com.ikramdagci.secondhomework.model.Instructor;
 import com.ikramdagci.thirdhomework.exception.StaffNotFoundException;
 import com.ikramdagci.thirdhomework.model.Instructor;
 import com.ikramdagci.thirdhomework.repository.InstructorRepository;

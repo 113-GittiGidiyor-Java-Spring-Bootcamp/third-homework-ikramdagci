@@ -1,43 +1,46 @@
 package com.ikramdagci.thirdhomework.service;
 
-import com.ikramdagci.secondhomework.dao.data.access.definition.CourseDao;
-import com.ikramdagci.secondhomework.model.Course;
+import com.ikramdagci.thirdhomework.exception.StaffNotFoundException;
 import com.ikramdagci.thirdhomework.model.Course;
+import com.ikramdagci.thirdhomework.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CourseService implements BaseService<Course> {
 
-    private final CourseDao courseDao;
+    private final CourseRepository courseRepository;
 
-    public CourseService(CourseDao courseDao) {
-        this.courseDao = courseDao;
+    public CourseService(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
     }
 
     @Override
     public List<Course> findAll() {
-        return courseDao.findAll();
+        List<Course> courses = new ArrayList<>();
+        courseRepository.findAll().forEach(courses::add);
+        return courses;
     }
 
     @Override
     public Course findById(Long id) {
-        return courseDao.findById(id);
+        return courseRepository.findById(id).orElseThrow(() -> new StaffNotFoundException(id));
     }
 
     @Override
     public Course save(Course course) {
-        return courseDao.save(course);
+        return courseRepository.save(course);
     }
 
     @Override
     public void deleteById(Long id) {
-        courseDao.deleteById(id);
+        courseRepository.deleteById(id);
     }
 
     @Override
     public Course update(Course course) {
-        return courseDao.update(course);
+        return courseRepository.save(course);
     }
 }
