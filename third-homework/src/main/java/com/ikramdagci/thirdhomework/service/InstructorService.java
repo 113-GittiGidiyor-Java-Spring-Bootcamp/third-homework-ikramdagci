@@ -50,4 +50,10 @@ public class InstructorService implements BaseService<Instructor> {
        return instructorRepository.findTop3BySalary();
     }
 
+    public List<Instructor> deleteByName(String fullName) {
+        List<Instructor> instructors = instructorRepository.findByFullName(fullName);
+        instructorRepository.deleteByFullName(fullName);
+        return  instructors;
+    }
+
 }

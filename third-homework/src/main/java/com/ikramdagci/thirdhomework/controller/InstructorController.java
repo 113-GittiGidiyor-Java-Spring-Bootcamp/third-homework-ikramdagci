@@ -45,6 +45,12 @@ public class InstructorController {
         return new ResponseEntity<>(willDeleted,HttpStatus.OK);
     }
 
+    @DeleteMapping("/instructors/{fullName}")
+    public ResponseEntity<List<Instructor>> deleteInstructorById(@PathVariable String fullName){
+        List<Instructor> instructorList = instructorService.deleteByName(fullName);
+        return new ResponseEntity<>(instructorList,HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<List<Instructor>> findThreeHighestPaidInstructors() {
         List<Instructor> list =  instructorService.findThreeHighestPaidInstructors();

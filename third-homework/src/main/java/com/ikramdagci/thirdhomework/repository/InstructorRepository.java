@@ -7,11 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-@EnableJpaRepositories
 public interface InstructorRepository extends CrudRepository<Instructor,Long> {
 
     @Query(
             value = "SELECT s FROM Instructor s ORDER BY salary DESC LIMIT 3",
             nativeQuery = true)
     List<Instructor> findTop3BySalary();
+
+    void deleteByFullName(String fullName);
+    List<Instructor> findByFullName(String fullName);
 }
