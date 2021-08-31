@@ -10,6 +10,8 @@ import java.util.List;
 @EnableJpaRepositories
 public interface InstructorRepository extends CrudRepository<Instructor,Long> {
 
-    @Query("SELECT s FROM Instructor s ORDER BY salary DESC LIMIT 3")
+    @Query(
+            value = "SELECT s FROM Instructor s ORDER BY salary DESC LIMIT 3",
+            nativeQuery = true)
     List<Instructor> findTop3BySalary();
 }
