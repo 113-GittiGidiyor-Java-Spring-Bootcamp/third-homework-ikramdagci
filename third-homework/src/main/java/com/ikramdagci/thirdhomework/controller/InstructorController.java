@@ -45,4 +45,10 @@ public class InstructorController {
         return new ResponseEntity<>(willDeleted,HttpStatus.OK);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Instructor>> findThreeHighestPaidInstructors() {
+        List<Instructor> list =  instructorService.findThreeHighestPaidInstructors();
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+
 }

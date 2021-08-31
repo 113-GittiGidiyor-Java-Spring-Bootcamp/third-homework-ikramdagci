@@ -4,6 +4,7 @@ package com.ikramdagci.thirdhomework.service;
 import com.ikramdagci.thirdhomework.exception.StaffNotFoundException;
 import com.ikramdagci.thirdhomework.model.Instructor;
 import com.ikramdagci.thirdhomework.repository.InstructorRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -45,7 +46,8 @@ public class InstructorService implements BaseService<Instructor> {
         return instructorRepository.save(instructor);
     }
 
-//    public List<Instructor> findTop3BySalary(){
-//        return instructorRepository.findTop3BySalary();
-//    }
+    public List<Instructor> findThreeHighestPaidInstructors() {
+       return instructorRepository.findTop3BySalary();
+    }
+
 }

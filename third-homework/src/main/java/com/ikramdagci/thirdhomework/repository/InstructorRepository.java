@@ -7,8 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+@EnableJpaRepositories
 public interface InstructorRepository extends CrudRepository<Instructor,Long> {
 
-//    @Query("SELECT * FROM t_instructor ORDER BY salary DESC LIMIT 3")
-//    List<Instructor> findTop3BySalary();
+    @Query("SELECT s FROM Instructor s ORDER BY salary DESC LIMIT 3")
+    List<Instructor> findTop3BySalary();
 }
